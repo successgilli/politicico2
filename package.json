@@ -1,0 +1,51 @@
+{
+  "name": "politicico2",
+  "version": "1.0.0",
+  "description": "voting app",
+  "main": "app.js",
+  "scripts": {
+    "test": "SET NODE_ENV=test&& nyc mocha --timeout 3000 --exit --require babel-register",
+    "build": "babel src -d dist",
+    "start": "SET NODE_ENV=production&& npm run build && node dist/app",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/successgilli/politicico2.git"
+  },
+  "keywords": [
+    "andela",
+    "vote",
+    "politics"
+  ],
+  "author": "Gilbert A.N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/successgilli/politicico2/issues"
+  },
+  "homepage": "https://github.com/successgilli/politicico2#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "asyncawait": "^1.0.8",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mocha": "^6.0.1",
+    "pg": "^7.8.1"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "istanbul": "^0.4.5",
+    "nyc": "^13.3.0"
+  }
+}
