@@ -4,7 +4,7 @@
   "description": "voting app",
   "main": "app.js",
   "scripts": {
-    "test": "SET NODE_ENV=test&& nyc mocha --timeout 3000 --exit --require babel-register",
+    "test": "nyc mocha --timeout 3000 --exit --require babel-register",
     "build": "babel src -d dist",
     "start": "SET NODE_ENV=production&& npm run build && node dist/app",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
