@@ -7,6 +7,7 @@ class partyController {
       const text = 'INSERT INTO parties (name, hqAddress, logoUrl) VALUES ($1,$2,$3) RETURNING *;';
       const param = [name, hqAddress, logoUrl];
       const result = await db(text, param);
+      console.log(res);
       res.status(200).json(result.rows[0]);
     }
     catch (e) {
