@@ -3,7 +3,7 @@ export const validateName = (inputName) => {
   if (name === '') {
     return 'empty name field';
   }
-  if (!/(?!^[\d]+$)^[\w]{3,10}$/i.test(name)) {
+  if (!/(?!^[\d]+$)^[\w]{3,20}$/i.test(name)) {
     return 'name field can only contain underscores, words, and digits and must not be less than 5 letters cannot also use all numbers';
   }
 };

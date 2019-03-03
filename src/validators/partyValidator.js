@@ -4,18 +4,48 @@ class ValidateParty {
   static validateCreateParty(req, res, next) {
     const { name, hqAddress, logoUrl } = req.body;
     if (typeof name === 'undefined') {
-      res.status(400).json('missing name field');
-    } else if ( typeof hqAddress === 'undefined') {
-      res.status(400).json('missing hqAddress field');
-    } else if ( typeof logoUrl === 'undefined') {
-      res.status(400).json('missing logoUrl field');
+      res.status(400).json({
+        status: 400,
+        message: 'missing name field',
+      });
+    } else if (typeof hqAddress === 'undefined') {
+      res.status(400).json({
+        status: 400,
+        message: 'missing hqAddress field',
+      });
+    } else if (typeof logoUrl === 'undefined') {
+      res.status(400).json({
+        status: 400,
+        message: 'missing logoUrl field',
+      });
     } else if (validateName(name)) {
-      res.status(400).json(validateName(name));
+      res.status(400).json({
+        status: 400,
+        message: validateName(name),
+      });
     } else if (validateHqAddress(hqAddress)) {
-      res.status(400).json(validateHqAddress(hqAddress));
+      res.status(400).json({
+        status: 400,
+        message: validateHqAddress(hqAddress),
+      });
     }
     else if (validateLogoUrl(logoUrl)) {
-      res.status(400).json(validateLogoUrl(logoUrl));
+      res.status(400).json({
+        status: 400,
+        message: validateLogoUrl(logoUrl),
+      });
+    } else {
+      next();
+    }
+  }
+
+  static validateEditParty(req, res, next) {
+    const { name } = req.params;
+    if (validateName(name)) {
+      res.status(400).json({
+        status: 400,
+        message: validateName(name),
+      });
     } else {
       next();
     }
