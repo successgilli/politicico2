@@ -7,7 +7,8 @@
     "testDev": "SET NODE_ENV=test&& nyc mocha --timeout 20000 --exit --require babel-register",
     "test": "nyc mocha --timeout 20000 --exit --require babel-register",
     "build": "babel src -d dist",
-    "start": "SET NODE_ENV=production&& npm run build && node dist/app",
+    "start": "npm run build && node dist/app",
+    "startDev": "SET NODE_ENV=production&& npm run build && node dist/app",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
