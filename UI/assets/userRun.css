@@ -1,0 +1,261 @@
+header{
+    width: 100%;
+    background-color: rgb(77, 68, 68);
+    height: 60px;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+}
+body{
+    margin: 0;
+}
+#headerLeft{
+    background-color: rgb(77, 68, 68);
+    flex-basis: 20%;
+    border-right: 2px solid white;
+    display: flex;
+    margin-left:0;
+    justify-content: center;
+    transition: 0.800s ease;
+    
+
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+#navBar{
+    font-size: 22px;
+    margin-left: 30px;
+}
+#navBar:hover{
+    color: white;
+    cursor: pointer;
+}
+#headerRight{
+     
+    flex-basis: 80%;
+    display: flex;
+    transition: 0.800s ease;
+}
+#headerRightLeft{
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+}
+#headerRightCenter{
+    flex-basis: 60%;
+     
+}
+#headerRightRight{
+    flex-basis: 20%;
+     
+}
+
+#partyOptions{
+    width: 95%;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.optionLabel{
+    position: relative;
+    top: -50px;
+    width: 50px;
+    padding-left: 3px;
+    padding-right: 3px;
+     
+    background-color: white;
+    transition: 0.800s ease;
+}
+#submit{   
+    display: block;  
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    cursor: pointer; 
+    outline: 0;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(66, 182, 228);
+    padding: 7px;
+    width: 100px;
+}
+#submit:hover{
+    color: white;
+}
+#campStatement{
+    width: 95%;
+    font-size: 20px;
+    padding-top: 10px;
+}
+#officeOptions{
+    width: 95%;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    min-height: 600px;
+}
+aside{
+    padding-top: 70px;
+    background-color: rgb(34, 31, 31);
+    flex-basis: 20%;
+    margin-left:0;
+    color: grey;
+    transition: 0.800s ease;
+}
+
+.aside{
+    padding: 20px;
+    border-bottom: 0.002em solid grey;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+   
+     
+}
+.aside:hover{
+    color: white;
+}
+#main{
+    flex-basis: 80%;
+    text-align: center;
+    padding-top: 60px;
+    padding-left: 3px;
+    padding-right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.800s ease;
+    background-color: rgb(211, 202, 202);
+}
+/*politico*/
+#politico{
+	width:100px;
+	 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bolder;
+    height: 50px;
+    font-family: Amazonasimport;
+    font-size: 25px;
+    margin-top: 8px;
+}
+#i1,#i2,#i3{
+width: 7px;
+height: 20px;
+background-color: rgb(110, 218, 110);
+display: inline-block;
+}
+#i1{
+	height: 10px;
+}
+#i3{
+	height: 15px;
+}
+#icon{
+	margin-top: 17px;
+	margin-bottom: -30px;
+}
+/*politico ends*/
+footer{
+    background-color: rgb(66, 182, 228);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#modalBackground{
+     position: fixed;
+     top: 0;
+     z-index: 888;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0,0, 0.6);
+     display: none;
+}
+#footerpelem{
+    margin-bottom: 0;
+}
+/*for Home Page*/
+#campLabel{
+    position: relative;
+    top: -40px;
+    width: 80px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: white;
+    transition: 0.800s ease;
+}
+
+#runForm{
+    width: 60%;
+     
+    background-color: white;
+    margin: auto;
+    padding-top: 50px;
+    border-radius: 3px;
+}
+/*for Home Page*/
+
+@media(min-width:880px){
+    footer{
+        
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media(max-width:879px){
+    #footerh5{
+        margin-top: 0;
+    }
+}
+@media(min-width:766px){
+    .aside{
+        position: relative;
+    }
+    #aside{
+        overflow-y: auto; 
+    }
+}
+@media(max-width:765px){
+    #aside{
+        position: fixed;
+        width: 170px;
+        height: 100%;
+        margin-left: -170px;
+        z-index: 889;
+        transition: 0.800s ease;     
+    }
+    #main{
+        background-color: rgb(211, 202, 202);
+        flex-basis: 100%;
+        text-align: center;
+        padding-top: 80px;
+        transition: 0.800s ease;
+        
+    }
+    #runForm{
+        width: 80%;
+    }
+    #headerLeft{
+        position: fixed;
+        width: 170px;
+        margin-left: -170px;
+        transition: 0.800s ease;
+    }
+    #headerRight{
+         
+        flex-basis: 100%;
+        display: flex;
+        transition: 0.800s ease;
+    }
+}

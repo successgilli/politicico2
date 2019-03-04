@@ -1,0 +1,309 @@
+header{
+    width: 100%;
+    background-color: rgb(77, 68, 68);
+    height: 60px;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+}
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+#headerLeft{
+    background-color: rgb(77, 68, 68);
+    flex-basis: 20%;
+    border-right: 2px solid white;
+    display: flex;
+    margin-left:0;
+    justify-content: center;
+    transition: 0.800s ease;
+    
+
+}
+#navBar{
+    font-size: 22px;
+    margin-left: 30px;
+}
+#navBar:hover{
+    color: white;
+    cursor: pointer;
+}
+#headerRight{
+     
+    flex-basis: 80%;
+    display: flex;
+    transition: 0.800s ease;
+}
+#headerRightLeft{
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+}
+#headerRightCenter{
+    flex-basis: 60%;
+     
+}
+#headerRightRight{
+    flex-basis: 20%;
+     
+}
+main{
+    display: flex;
+    
+}
+aside{
+    padding-top: 70px;
+    background-color: rgb(34, 31, 31);
+    flex-basis: 20%;
+    margin-left:0;
+    color: grey;
+    transition: 0.800s ease;
+}
+
+.aside{
+    padding: 20px;
+    border-bottom: 0.002em solid grey;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+   
+     
+}
+.aside:hover{
+    color: white;
+}
+#main{
+    flex-basis: 80%;
+    text-align: center;
+    padding-top: 60px;
+    padding-left: 3px;
+    padding-right: 3px;
+    transition: 0.800s ease;
+    min-height: 600px;  
+     
+}
+/*politico*/
+#politico{
+	width:100px;
+	 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bolder;
+    height: 50px;
+    font-family: Amazonasimport;
+    font-size: 25px;
+    margin-top: 8px;
+}
+#i1,#i2,#i3{
+width: 7px;
+height: 20px;
+background-color: rgb(110, 218, 110);
+display: inline-block;
+}
+#i1{
+	height: 10px;
+}
+#i3{
+	height: 15px;
+}
+#icon{
+	margin-top: 17px;
+	margin-bottom: -30px;
+}
+/*politico ends*/
+footer{
+    background-color: rgb(66, 182, 228);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#modalBackground{
+     position: fixed;
+     top: 0;
+     z-index: 888;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0,0, 0.6);
+     display: none;
+}
+#footerpelem{
+    margin-bottom: 0;
+}
+/*for Home Page*/
+#floatingDiv{
+    height: 100%;
+    background-color: rgb(226, 220, 220);
+}
+#voteTitle{
+    width: 100%;
+    height: 10%;
+    background-color:rgb(121, 120, 120); 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+     
+    
+}
+.statement{
+     width: 90%;
+     min-height: 0;
+     border: 1px solid white;
+     margin: auto;
+     border-radius: 7px;
+     padding: 10px;
+     margin-bottom: 10px;
+    text-align: justify;
+    display: none;
+    transition: 0.800s ease;
+}
+
+#votePoliticalOffices{
+    
+    width: 100%;
+    height:90%;
+}
+#selectInfo{
+    color: rgb(46, 42, 42);
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.offices{
+    width: 90%;
+    height: 40px;
+    background-color: white;
+    border-radius: 7px;
+    margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid rgb(226, 220, 220);   
+}
+.offices:hover{
+    border-color: rgb(0, 153, 255);
+}
+.office{
+    width: 90%;
+    height: 40px;
+    background-color: white;
+    border-radius: 7px;
+    margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid rgb(226, 220, 220);   
+}
+.office:hover{
+    border-color: rgb(0, 153, 255);
+}
+#party{
+    color: grey;
+    font-size: 12px;
+}
+.voteClick:hover{
+    font-size: 18px;
+    color: green;
+    font-weight: bolder;
+}
+.voteClick{
+    color:rgb(0, 153, 255);
+    flex-basis: 20%;  
+}
+.fa{
+    color: rgb(185, 182, 182);
+    font-size: 22px;
+    flex-basis: 10%; 
+}
+.fa:hover{
+    color: rgb(26, 24, 24);
+    font-size: 20px;
+}
+.candidateName{
+    flex-basis: 70%; 
+    text-align: left;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
+
+
+
+    
+
+/*for Home Page*/
+
+@media(min-width:880px){
+    footer{
+        
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media(max-width:879px){
+    #footerh5{
+        margin-top: 0;
+    }
+}
+@media(min-width:766px){
+    .aside{
+        position: relative;
+    }
+    #aside{
+        overflow-y: auto; 
+    }
+}
+@media(max-width:765px){
+    #aside{
+        position: fixed;
+        width: 170px;
+        height: 100%;
+        margin-left: -170px;
+        z-index: 889;
+        transition: 0.800s ease;     
+    }
+    #main{
+        background-color: green;
+        flex-basis: 100%;
+        text-align: center;
+        padding-top: 80px;
+        transition: 0.800s ease;
+        
+    }
+    #headerLeft{
+        position: fixed;
+        width: 170px;
+        background-color: rgb(77, 68, 68);
+        margin-left: -170px;
+        transition: 0.800s ease;
+        z-index: 1001;
+    }
+    #headerRight{
+         
+        flex-basis: 100%;
+        display: flex;
+        transition: 0.800s ease;
+    }
+}

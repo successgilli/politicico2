@@ -1,0 +1,465 @@
+@font-face{
+    font-family: Amazonasimport;
+    src: url('./Amazonas.ttf');
+}
+body{
+    margin: 0;
+}
+main{
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    min-height: 600px;
+    background-color: grey;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(77, 68, 68);
+    height: 60px;
+   overflow: hidden;
+   z-index: 1100;
+    
+}
+#headerLeft{
+    flex-basis: 50%;
+     
+    padding-left: 50px;
+}
+#headerCenter{
+    flex-basis: 50%;
+     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navBar{
+     font-size: 20px;    
+}
+#navBarDiv{
+    display: none;    
+}
+#signinDiv{
+    display: none; 
+    font-size: 20px;   
+}
+#signInIcon{
+    font-size: 20px;
+}
+
+#headerCenterDiv{
+ 
+color: grey;
+width: 130px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 60px; 
+}
+#headerCenterDiv:hover{
+    color: white;
+    cursor: pointer;
+}
+
+
+.headerLinks{
+     
+    width: 80px;
+    height: 60px; 
+     display: flex;
+     align-items:center;
+     justify-content: center;
+    color: grey;
+}
+#headerLeft{
+    display: flex;
+}
+.headerLinks:hover{
+    color: white;
+    cursor: pointer;
+}
+
+ 
+#headerRight{ 
+    flex-basis: 20%;
+     
+}
+/*  icon for politico*/
+#politico{
+	width:100px;
+	 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bolder;
+    height: 50px;
+    font-family: Amazonasimport;
+    font-size: 25px;
+    margin-top: 8px;
+}
+#i1,#i2,#i3{
+width: 7px;
+height: 20px;
+background-color: rgb(110, 218, 110);
+display: inline-block;
+}
+#i1{
+	height: 10px;
+}
+#i3{
+	height: 15px;
+}
+#icon{
+	margin-top: 17px;
+	margin-bottom: -30px;
+}
+
+/*  icon for politico*/
+
+#signupDiv{
+    padding: 30px;
+}
+#signupForm{
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    border-radius: 3px;
+    width: 50%;
+    background-color: white;
+    min-height: 400px;
+}
+#resetPasswordModalBackground{
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0, 0.6);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+      display: none;
+}
+#resetPasswordContent{
+    width: 400px;
+    height: 200px;
+    padding-top: 20px;
+    position: relative;
+    background-color: white;
+}
+.close{
+    color: red;
+    transform: rotate(45deg);
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+#resetPasswordForm{
+    width: 80%;
+    min-height: 60px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#resetPasswordContent>p{
+    font-size: 22px;
+    width: 50%;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+}
+#resetPasswordModalInput{
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    width: 90%;
+}
+#submitResetPassword:hover{
+    color: white;
+    cursor: pointer;
+}
+#submitResetPassword{
+    margin-top: 20px;
+    padding: 5px;
+    border: 0;
+    outline: 0;
+    background-color: rgb(42, 124, 218);
+    width: 100px;
+    border-radius: 3px;
+}
+#forgotPassword{
+    cursor: pointer;
+}
+#signupForm>h2{
+    width: 95%;
+    text-align: left;
+    padding-left: 10px;
+}
+#submitSignup{
+    display: block;
+    margin: auto;
+    width: 150px;
+    padding: 10px;
+    margin-bottom: 20PX;
+    cursor: pointer;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(66, 182, 228);
+}
+#submitSignup:hover{
+    color: white;
+}
+#signupForm>input{
+    display: block;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+#signupForm>input+label{
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    top: -50px;
+    color: grey;
+    transition: 0.800s ease;
+   
+}
+
+#signupForm>input:focus+label{
+    top: -95px;
+    font-size: 12px;
+    color: rgb(42, 124, 218); 
+    transition: 0.800s ease; 
+}
+
+#signupForm>input:invalid{
+    color: white;  
+}
+
+#signupForm>input:focus{
+    color: black;  
+}
+#signupForm>input:valid+label{
+    top: -95px;
+    font-size: 12px;
+    color: black;  
+}
+#signupForm>input:focus+#dateSignup{
+    top: -102px;  
+    transition: 0.800s ease;
+}
+#signupForm>input:valid+#dateSignup{
+    top: -102px;
+    color: black;
+    transition: 0.800s ease;  
+}
+
+#signupDate:invalid{
+ color: white;
+ transition: 0.800s ease;
+}
+#signupDate:focus{
+    color: black;
+   }
+   
+footer{
+    background-color: rgb(66, 182, 228);
+    text-align: center;
+}
+
+#footerpelem{
+    margin-bottom: 0;
+}
+#modalBackground{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+}
+#modalContent{
+    position: relative;
+    top: 60px;
+    width: 250px;
+    min-height: 250px;
+    padding: 10px;
+    background-color: white;
+}
+#loginForm{ 
+    padding-top: 10px; 
+}
+
+#formInputs>input{
+    height: 40px;
+    font-size: 20px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+#submitButtonDiv{
+    width: 90px;
+    margin: auto;
+    margin-top: -40px;
+}
+#formInputs{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;    
+}
+#submitButton{
+    outline: 0;
+    background-color: rgb(66, 182, 228);
+    color: white;
+    border: 0;
+    padding: 10px;
+    width: 110px;
+    cursor: pointer;
+}
+#formInputs>input+label{
+    position: relative;
+    left: 5px;
+    top: -40px;
+    background-color: white;
+    padding: 5px;
+    transition: 0.800s ease;
+}
+#formInputs>input:focus+label{
+    position: relative;
+    font-size: 12px;
+    color: rgb(31, 165, 243);
+    top: -67px;
+    transition: 0.800s ease;
+}
+#formInputs>input:valid+label{
+    position: relative;
+    font-size: 12px;
+    color: rgb(31, 165, 243);
+    top: -67px;
+}
+#labelPassword{
+    width: 50px;
+}
+#labelName{
+    width: 30px;
+}
+#forgotPassword{
+    position: relative;
+    top: -50px;
+    text-align: right;
+}
+#DontHaveAccount{
+    text-align: right;
+}
+a{
+    text-decoration: none;
+}
+@media(max-width:879px){
+    #footerh5{
+        margin-top: 0;
+    }
+}
+@media(max-width:768px){
+    #signupForm{
+        
+        width: 80%;
+        background-color: white;
+        min-height: 400px;
+    }
+    #politicoDefRight{
+        flex-basis: 50%;
+         
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+         
+    }
+    #politicoDefLeft{
+            padding: 20px;
+            background-image: url('./pictures/vote.jpg');
+            background-size: 60% auto;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: 20px;
+    }
+
+    #modalBackground{
+        display: none;
+    }
+    #politicoDef{
+        flex-direction: column;
+    }
+    #home,#Demos,#Pricing,#Admin{
+        display: none;
+    }
+    #signInIcon{
+        padding-right: 10px;
+    }
+    
+    #headerLeft{
+        
+        padding-left:0;
+     }
+     
+ 
+}
+@media(min-width:880px){
+    footer{ 
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media(max-width:450px){
+    #modalContent{
+        width:95% ;
+        left: 0;
+    }
+    
+}
+@media(max-width:370px){
+    #politicoDef{
+       height: 500px;
+        padding-top:70px; 
+         
+    }
+    .headerLinks{
+        width: 50px;
+    }
+    #politicoDefLeft{
+        background-size: 50% 50%;
+         height: 0;
+        position: relative;
+        top: 140px; 
+}
+#politicoDefRight{
+    padding-top: 50px;
+     
+}
+#politicoDefRight>p{
+    top: 30px;
+    margin-bottom: 40px;
+
+}
+}
