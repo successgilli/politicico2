@@ -1,10 +1,12 @@
 import 'babel-polyfill';
 import bodyParser from 'body-parser';
 import express from 'express';
+import cors from 'cors';
 import createTables from './model/migrations';
 import route from './routes';
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', route);
