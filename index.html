@@ -9,6 +9,13 @@
     <title>Welcome page</title>
 </head>
 <body>
+    <div id="loadingBackground">
+            <div id="loadingContent">
+                <div id="loader">
+
+                </div>
+            </div>    
+    </div>
     <header>
         <div id="headerLeft">
             <div class="headerLinks" id="home"> Home </div>
@@ -90,7 +97,7 @@
                 <form action="" id="loginForm">
                    <div id="formInputs">
                         <input type="text" id="loginName" required>
-                        <label for="loginName" id="labelName">Name</label>
+                        <label for="loginName" id="labelName">Email</label>
                         <input type="password" id="loginPassword" required>
                         <label for="loginPassword" id="labelPassword">Password</label>
 
@@ -100,7 +107,8 @@
                     <div id="submitButtonDiv">
                         <input type="submit" value="Login" id="submitButton">
                     </div> 
-                    <a href="./signup.html"><p id="DontHaveAccount">Don't have an Account?</p></a>         
+                    <a href="./signup.html"><p id="DontHaveAccount">Don't have an Account?</p></a>  
+                    <p id="errMessage"></p>       
                 </form>
             </div>
         </div>

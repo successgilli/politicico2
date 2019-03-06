@@ -9,8 +9,6 @@
 let statementDiv=document.getElementsByClassName('statement');
 let blueBoxLinks=document.getElementsByClassName('menu');
 
-
-
 for(i=0;i<blueBoxLinks.length;i++){
     if(i===0){
         blueBoxLinks[i].addEventListener('click',()=>{
