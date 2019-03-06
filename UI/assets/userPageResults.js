@@ -5,7 +5,7 @@ let aside=document.getElementById('aside');
 let main=document.getElementById('main');
 let asideDiv=document.getElementsByClassName('aside');
 let modalBackground=document.getElementById('modalBackground');
-
+console.log(localStorage.getItem('auth'));
 window.addEventListener('scroll',()=>{    
        for(i=0;i<asideDiv.length;i++){
            asideDiv[i].style.top=window.pageYOffset+'px';

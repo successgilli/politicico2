@@ -6,12 +6,14 @@ let asideModal=document.getElementById('asideModal');
 let aside=document.getElementsByTagName('aside')[0];
 let loginButton=document.getElementById('submitButton');
 let modalContent=document.getElementById('modalContent');
-let loginForm=document.getElementById('loginForm');
+let loginForm=document.forms['loginForm'];
 let formInputs=document.getElementById('formInputs');
 let loginName=document.getElementById('loginName');
 let loginPassword=document.getElementById('loginPassword');
 let closeX=document.getElementsByClassName('close');
 let forgotPassword=document.getElementById('forgotPassword');
+const errMessage = document.getElementById('errMessage');
+const loadingBackground = document.getElementById('loadingBackground');
 let xPoint;
 let ypoint;
 let prevx;
@@ -35,9 +37,40 @@ for(i=0;i<closeX.length;i++){
 //go to user page onClick
 loginButton.addEventListener('click',(e)=>{
     e.preventDefault();
-    location='./userPage.html';
+    loadingBackground.style.display = 'block';
+    errMessage.textContent = '';
+    user = {
+        email: loginForm.elements['loginName'].value,
+        userPassword: loginForm.elements['loginPassword'].value
+    }  
+    const url = 'https://politico2gilbert.herokuapp.com/api/v1/auth/login';
+    const request = new Request (url, {
+        method: 'POST',
+        headers: new Headers ({'Content-type':'application/json', 'Accept':'application/json,text/plain,*/*'}),
+        body: JSON.stringify(user),
+    })
+    fetch(request).then((res) => {
+        if(res.ok){
+            return res.json();
+        }
+        throw res;
+    }).then((obj) => {
+        loadingBackground.style.display = 'none';
+        localStorage.setItem('auth2',obj.data[0].token);
+        location = './userPage.html';
+    }).catch(er => {
+        loadingBackground.style.display = 'none';
+        if (er.message === 'Failed to fetch'){
+            errMessage.textContent = 'check your network connection';
+        } else {
+            er.json().then((err) => {
+                errMessage.textContent = err.message;
+            })
+        }
+    })
 })
 modalBackground.addEventListener('click',(e)=>{
+    errMessage.textContent = '';
     let target=e.target;
     console.log(target)
     //ensure loginForm is not closed when clicked on except the 
