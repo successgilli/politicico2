@@ -207,6 +207,35 @@ class UserController {
       }
     }
   }
+
+  static async getVotes(req, res) {
+    try {
+      const val = [];
+      const { userId } = req.params;
+      const text = 'SELECT * FROM votes WHERE createdby=$1;';
+      const param = [userId];
+      const result = await db(text, param);
+      if (result.rowCount >= 1) {
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < result.rowCount; i++) {
+          const text1 = 'SELECT * FROM candidates WHERE id=$1;';
+          console.log(result.rows)
+          const param1 = [result.rows[i].candidate];
+          // eslint-disable-next-line no-await-in-loop
+          const result1 = await db(text1, param1);
+          val.push(result1.rows);
+        }
+        res.json(val);
+      } else {
+        res.status(400).json({
+          status: 400,
+          message: 'no votes found',
+        });
+      }
+    } catch (e) {
+      res.json(e.message);
+    }
+  }
 }
 
 export default UserController;

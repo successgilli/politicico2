@@ -13,7 +13,7 @@ const { validateCreateParty, validateEditParty } = ValidateParty;
 const { createParty, getParty, getAllParties, editParty, deleteParty } = partyController;
 const { createOffice, getAllOffices, getOffice } = OfficeController;
 const { createOfficeValidator } = ValidateOffice;
-const { signUser, signInUser, registerUser, vote } = UserController;
+const { signUser, signInUser, registerUser, vote, getVotes } = UserController;
 const { getOfficeResult } = Results;
 const { resetEmail } = EmailReset;
 const route = express.Router();
@@ -30,6 +30,7 @@ route.post('/auth/login', signInUser);
 route.post('/office/:userId([0-9]+)/register', checkToken, isAdmin, registerUser);
 route.post('/votes',checkToken, vote);
 route.post('/office/:officeId([0-9]+)/result', checkToken, getOfficeResult);
-route.post('/auth/reset', checkToken, resetEmail)
+route.post('/auth/reset', checkToken, resetEmail);
+route.get('/votes/:userId([0-9]+)', checkToken, getVotes);
 
 export default route;
