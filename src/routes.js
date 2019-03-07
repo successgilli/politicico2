@@ -8,6 +8,7 @@ import checkToken from './helpers/verifyToken';
 import isAdmin from './helpers/checkUser';
 import Results from './controllers/resultController';
 import EmailReset from './controllers/passwordReset';
+import candidate from './controllers/candidateController';
 
 const { validateCreateParty, validateEditParty } = ValidateParty;
 const { createParty, getParty, getAllParties, editParty, deleteParty } = partyController;
@@ -16,6 +17,7 @@ const { createOfficeValidator } = ValidateOffice;
 const { signUser, signInUser, registerUser, vote, getVotes } = UserController;
 const { getOfficeResult } = Results;
 const { resetEmail } = EmailReset;
+const { getCandidateInfo } = candidate; 
 const route = express.Router();
 route.post('/parties', validateCreateParty, checkToken, isAdmin, createParty);
 route.get('/parties/:partyId([0-9]+)', checkToken, getParty);
@@ -32,5 +34,6 @@ route.post('/votes',checkToken, vote);
 route.post('/office/:officeId([0-9]+)/result', checkToken, getOfficeResult);
 route.post('/auth/reset', checkToken, resetEmail);
 route.get('/votes/:userId([0-9]+)', checkToken, getVotes);
+route.get('/candidate/:candidateId([0-9]+)', checkToken, getCandidateInfo)
 
 export default route;
