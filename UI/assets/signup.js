@@ -51,7 +51,7 @@ submitSignup.addEventListener('click', (e) => {
         console.log(obj.data);
         signedInUser.textContent = obj.data[0].user.firstname;
         welcomeToPoliticoBackground.style.display = 'flex';
-        localStorage.setItem('auth', obj.data[0].token);
+        localStorage.setItem('authSignup', obj.data[0].token);
         loadingBackground.style.display = 'none';
     }).catch (e =>{
         ErrorMessageBackground.style.display = 'flex';
