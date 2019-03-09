@@ -5,9 +5,10 @@
  let main=document.getElementById('main');
  let asideDiv=document.getElementsByClassName('aside');
  let modalBackground=document.getElementById('modalBackground');
- let statementArrows=document.getElementsByClassName('fa');
-let statementDiv=document.getElementsByClassName('statement');
 let blueBoxLinks=document.getElementsByClassName('menu');
+const candidateName = document.getElementById('candidateName');
+const runningOffice = document.getElementById('runningOffice');
+const party = document.getElementById('party');
 
 for(i=0;i<blueBoxLinks.length;i++){
     if(i===0){
@@ -37,31 +38,110 @@ window.addEventListener('scroll',()=>{
         }   
 }) 
 window.addEventListener('load',()=>{
-    for(i=0;i<statementArrows.length;i++){
-        statementArrows[i].innerHTML='&#xf107;';    
-    }   
-})
-for(i=0;i<statementArrows.length;i++){
-    console.log(statementArrows);
-    statementArrows[i].addEventListener('click',(e)=>{
-        let target=e.target;
-        let realTarget=target.parentNode.nextElementSibling;
-        let state= window.getComputedStyle(realTarget).getPropertyValue('display');
-        if(state==='none'){
-            for(i=0;i<statementArrows.length;i++){
-                statementArrows[i].innerHTML='&#xf107;';
-                statementDiv[i].style.display='none';
-            }
-            target.innerHTML='&#xf106;';
-            realTarget.style.display='block';
-        }
-        else{
-            target.innerHTML='&#xf107;';
-            realTarget.style.display='none';
-        }
-
+    const userId = localStorage.getItem('user');
+    //load in votes made by a user  
+    const url = `https://politico2gilbert.herokuapp.com/api/v1/votes/${userId}`;
+    const request = new Request (url, {
+        method: 'GET',
+        headers: new Headers ({'Content-type':'application/json', 'authorization': `${localStorage.getItem('auth')}`, 'Accept':'application/json,text/plain,*/*'}), 
     })
-}
+    fetch(request).then(res => {
+        if(res.ok){
+            return res.json();
+        }
+        throw res;
+    }).then(obj => {
+        obj.data.forEach(vote => {
+            const url = `https://politico2gilbert.herokuapp.com/api/v1/candidate/${vote.candidate}`;
+            const requestCandidate = new Request (url, {
+                method: 'GET',
+                headers: new Headers ({'Content-type':'application/json', 'authorization': `${localStorage.getItem('auth')}`, 'Accept':'application/json,text/plain,*/*'}), 
+            });
+            fetch(requestCandidate).then( res => {
+                if(res.ok){
+                    return res.json();
+                }
+                throw res;
+            }).then( obj => {
+                console.log(obj.data);
+               /* runningOffice.textContent = obj.data.officetype;
+                candidateName.textContent = `${obj.data.userFirstName} ${obj.data.userLastName}`;
+                party.textContent = obj.data.partyName;*/
+                // creating elems
+                
+                const office = document.createElement('div');
+                office.className = 'office';
+                const parent = document.getElementById('votePoliticalOffices');
+                const candName = document.createElement('div');
+                candName.className = 'candidateName';
+                candName.textContent = `${obj.data.userFirstName} ${obj.data.userLastName}`;
+                candName.setAttribute('id', 'candidateName');
+                const runOffice = document.createElement('div');
+                runOffice.className = 'runningOffice';
+                runOffice.textContent = obj.data.officetype;
+                runOffice.setAttribute('id', 'runningOffice');
+                const party = document.createElement('span');
+                party.setAttribute('id', 'party');
+                party.textContent = obj.data.partyName;
+                const statement = document.createElement('div');
+                statement.className = 'statement';
+                const unicode = document.createElement('div');
+                unicode.className = 'fa';
+                office.appendChild(candName);
+                office.appendChild(party);
+                office.appendChild(runOffice);
+                office.appendChild(unicode);
+                parent.appendChild(office);
+                parent.appendChild(statement);
+                // creating elems
+                //getelements
+                const statementArrows = document.getElementsByClassName('fa');
+                const statementDiv = document.getElementsByClassName('statement');
+                for(i=0;i<statementArrows.length;i++){
+                    statementArrows[i].innerHTML='&#xf107;';
+                } 
+                    console.log(statementArrows);
+                    unicode.addEventListener('click',(e)=>{
+                        let target=e.target;
+                        let realTarget=target.parentNode.nextElementSibling;
+                        console.log(realTarget, ' ',target )
+                        let state= window.getComputedStyle(realTarget).getPropertyValue('display');
+                        if(state==='none'){
+                            for(i=0;i<statementArrows.length;i++){
+                                statementArrows[i].innerHTML='&#xf107;';
+                                statementDiv[i].style.display='none';
+                            }
+                            target.innerHTML='&#xf106;';
+                            realTarget.style.display='block';
+                        }
+                        else{
+                            target.innerHTML='&#xf107;';
+                            realTarget.style.display='none';
+                        }
+                
+                    })
+                
+            }).catch(e => {
+                if (e.message === 'Failed to fetch'){
+                    console.log('check ur connection')
+                } else {
+                    e.json().then(err => {
+                        console.log(err.message);
+                    })
+                }
+            })
+        });
+    }).catch(e => {
+        if (e.message === 'Failed to fetch'){
+            console.log('check ur connection')
+        } else{
+            e.json().then(err => {
+                console.log(err.message);
+            })
+        }
+    })
+})
+
 window.addEventListener('resize',()=>{
     if(window.innerWidth<=765){
        aside.style.marginLeft='-170px';

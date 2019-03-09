@@ -56,8 +56,10 @@ loginButton.addEventListener('click',(e)=>{
         throw res;
     }).then((obj) => {
         loadingBackground.style.display = 'none';
-        localStorage.setItem('auth2',obj.data[0].token);
-        location = './userPage.html';
+        localStorage.setItem('auth',obj.data[0].token);
+        localStorage.setItem('user',obj.data[0].user.userId);
+        location = './userPage.html'
+        console.log(obj.data[0].token)
     }).catch(er => {
         loadingBackground.style.display = 'none';
         if (er.message === 'Failed to fetch'){
