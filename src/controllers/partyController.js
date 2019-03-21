@@ -134,10 +134,18 @@ class partyController {
         });
       }
     } catch (e) {
-      res.status(400).json({
-        status: 400,
-        message: e.message,
-      });
+      if (e.message === 'update or delete on table "parties" violates foreign key constraint "candidates_partyid_fkey" on table "candidates"') {
+        res.status(400).json({
+          status: 400,
+          message: 'candidate is attached to this party',
+        });
+      } else {
+        res.status(400).json({
+          status: 400,
+          message: e.message,
+        });
+      }
+
     }
   }
 }
